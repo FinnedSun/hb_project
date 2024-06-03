@@ -116,19 +116,19 @@ function submit_edit_room() {
   data.append('children', edit_room_form.elements['children'].value)
   data.append('desc', edit_room_form.elements['desc'].value)
 
-  let features = []
-  edit_room_form.elements['features'].forEach((el) => {
-    if (el.checked) {
-      features.push(el.value)
-    }
-  })
+  // let features = []
+  // edit_room_form.elements['features'].forEach((el) => {
+  //   if (el.checked) {
+  //     features.push(el.value)
+  //   }
+  // })
 
-  let facilities = []
-  edit_room_form.elements['facilities'].forEach((el) => {
-    if (el.checked) {
-      facilities.push(el.value)
-    }
-  })
+  // let facilities = []
+  // edit_room_form.elements['facilities'].forEach((el) => {
+  //   if (el.checked) {
+  //     facilities.push(el.value)
+  //   }
+  // })
 
   data.append('features', JSON.stringify(features))
   data.append('facilities', JSON.stringify(facilities))

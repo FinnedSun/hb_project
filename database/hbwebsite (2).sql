@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Waktu pembuatan: 17 Jan 2024 pada 09.43
+-- Waktu pembuatan: 06 Bulan Mei 2024 pada 13.36
 -- Versi server: 10.4.28-MariaDB
 -- Versi PHP: 8.0.28
 
@@ -82,7 +82,7 @@ CREATE TABLE `contact_details` (
 --
 
 INSERT INTO `contact_details` (`sr_no`, `address`, `gmap`, `pn1`, `pn2`, `email`, `fb`, `ig`, `tw`, `iframe`) VALUES
-(1, 'Jl. Khatib Sulaiman No.48', 'https://maps.app.goo.gl/mDmSmryjAa2wvNp6A', '62895602588739', '62895602588739', 'rayhanagungmaulana@gmail.com', 'https://facebook.com/', 'https://www.instagram.com/', '', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127657.86730794268!2d100.21562644335938!3d-0.9160870000000046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4b8cf0d5762af:0xe8fd35b37bbbdab9!2sWhiz Prime Hotel Khatib Sulaiman Padang!5e0!3m2!1sid!2sid!4v1703358985859!5m2!1sid!2sid&quot; width=&quot;600&quot; height=&quot;450&quot; style=&quot;border:0;&quot; allowfullscreen=&quot;&quot; loading=&quot;lazy&quot; referrerpolicy=&quot;no-referrer-when-downgrade');
+(1, 'Jl. Khatib Sulaiman No.48 sadfasdfa', 'https://maps.app.goo.gl/mDmSmryjAa2wvNp6A', '628956025887', '62895602588739', 'rayhanagungmaulana@gmail.com', 'https://facebook.com/asdfasdf', 'https://www.instagram.com/asdf', '', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127657.86730794268!2d100.21562644335938!3d-0.9160870000000046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4b8cf0d5762af:0xe8fd35b37bbbdab9!2sWhiz Prime Hotel Khatib Sulaiman Padang!5e0!3m2!1sid!2sid!4v1703358985859!5m2!1sid!2sid');
 
 -- --------------------------------------------------------
 
@@ -133,6 +133,28 @@ INSERT INTO `features` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `payment`
+--
+
+CREATE TABLE `payment` (
+  `id` int(50) NOT NULL,
+  `nama` varchar(200) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `no_hp` varchar(150) NOT NULL,
+  `alamat` varchar(250) NOT NULL,
+  `nama_product` varchar(200) NOT NULL,
+  `harga_product` int(100) NOT NULL,
+  `catatan_product` varchar(100) NOT NULL,
+  `image` varchar(250) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT 1,
+  `status_p` int(11) NOT NULL DEFAULT 1,
+  `status_k` int(11) NOT NULL DEFAULT 1,
+  `status_s` int(11) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `registered_users`
 --
 
@@ -141,7 +163,7 @@ CREATE TABLE `registered_users` (
   `email` varchar(100) NOT NULL,
   `phonenum` varchar(100) NOT NULL,
   `profile` varchar(100) NOT NULL,
-  `alamat` varchar(300) NOT NULL,
+  `alamat` varchar(400) NOT NULL,
   `pincode` int(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `status` int(11) NOT NULL DEFAULT 1,
@@ -153,7 +175,7 @@ CREATE TABLE `registered_users` (
 --
 
 INSERT INTO `registered_users` (`username`, `email`, `phonenum`, `profile`, `alamat`, `pincode`, `password`, `status`, `datentime`) VALUES
-('rayhan', 'rayhanagungmaulana.04@gmail.com', '1231231', 'inv_img', '12312312', 123, '$2y$10$gp.Zx7f3Af8enw5.h1APyeZQQMF5TTRxBgwjD1NTa4ZtWN1hWZhvq', 1, '2024-01-17 04:03:44');
+('rayhan', 'sfinned@gmail.com', '0895602588739', 'inv_img', 'Komp Pesona Filano Block EE12 No08', 123, '$2y$10$tDip/vEcXkisADsuyNzC3uwUjfZYKxehZjNz993jtPLH31DNfskkm', 1, '2024-05-06 18:29:09');
 
 -- --------------------------------------------------------
 
@@ -179,13 +201,17 @@ CREATE TABLE `rooms` (
 --
 
 INSERT INTO `rooms` (`id`, `name`, `area`, `price`, `quantity`, `adult`, `children`, `description`, `status`, `removed`) VALUES
-(4, 'kamar simpel', 12, 314, 76, 14, 12, 'asfas d fas fas fdas fsa df', 1, 0),
-(9, 'kamar simpel', 123, 200, 65, 5, 6, 'as dfasd fasd fas d', 1, 0),
-(10, 'kamar simple', 342, 400, 76, 6, 5, 'sdf sd fas as', 1, 0),
-(11, 'Kids Room', 125, 200, 40, 1, 8, 'a sdfa sdf sad fas df', 1, 0),
-(12, 'sadf ads', 123, 35, 2234, 2345, 345, 'a sdfasdf asd fas f', 1, 1),
-(13, 'deluxe room', 43, 400, 14, 2, 4, 'asdf sadfsadf asdf sdaf sda sa', 1, 0),
-(14, 'simpel room', 14, 300, 12, 2, 3, 'sa dfsdfsda fsad fsad fsd', 1, 0);
+(17, 'Faith Industries &quot;Paw-Paw&quot; Reversible Puffer Jacket', 3, 400, 200, 1, 2, 'Sizing Measurement Puffer Jacket:\r\n\r\nMedium: 70cm x 58cm x 62cm\r\nLarge: 72cm x 60cm x 64cm\r\nExtra Large: 74cm x 62cm x 66cm\r\nDouble Extra Large: 76cm x 64cm x 68cm', 1, 0),
+(18, 'Faith Industries &quot;Mini-Feng&quot; Tie Dye Tshirt', 3, 225, 200, 1, 1, 'Medium : 58cm X 72cm\r\nLarge : 60cm X 74cm\r\nExtra Large : 62cm X 76cm\r\nDouble Extra Large : 64cm X 78cm\r\nTriple Extra Large : 66cm X 80cm', 1, 0),
+(19, 'Faith Industries &quot;Makoto Yuki&quot; White Tshirt', 3, 200, 200, 1, 1, 'Medium : 58cm X 72cm\r\nLarge : 60cmX 74cm\r\nExtra Large : 62cmX 76cm\r\nDouble Extra Large : 64cm X 78cm', 1, 0),
+(20, 'Faith Industries Feng The Harbinger Utility Cargo Pants', 3, 450, 200, 1, 1, 'Medium: 102cm x 35-53cm\r\nLarge: 104cm x 38-55cm\r\nExtra Large: 106cm x 41-57cm', 1, 0),
+(21, 'Faith Industries &quot;Come Forth&quot; Black Tshirt', 12, 200, 200, 1, 1, 'Medium : 58cm X 72cm\r\nLarge : 60cmX 74cm\r\nExtra Large : 62cmX 76cm\r\nDouble Extra Large : 64cm X 78cm', 1, 0),
+(22, 'FTH x EVOS x My Hero Academia &quot;Plus Ultra&quot; Baseball Cap', 12, 250, 200, 1, 1, 'Kalau ada produk atau orderan terjadi kendala seperti halnya:\r\n\r\nProduk cacat\r\nProduk kurang lengkap\r\nProduk tidak sesuai deskripsi\r\nSalah kirim produk (termasuk salah size)', 1, 0),
+(23, 'rayhna', 1, 100, 100, 1, 1, 'asdsasa', 1, 1),
+(24, 'asdf', 134, 123, 12, 1, 1, 'asdf', 1, 1),
+(25, 'asdf', 111, 123, 123, 1, 1, 'askjdfkjsafkjasndkjfnsakdfnksdnfkasdkfsdajkfn', 1, 1),
+(26, 'asdf', 23, 234, 234, 234, 234, 'asdfas', 1, 1),
+(27, 'asdfsa', 100, 400, 200, 1, 1, 'asdfsadfdsaf', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -199,17 +225,6 @@ CREATE TABLE `room_facilities` (
   `facilities_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data untuk tabel `room_facilities`
---
-
-INSERT INTO `room_facilities` (`sr_no`, `room_id`, `facilities_id`) VALUES
-(8, 9, 16),
-(9, 9, 13),
-(10, 9, 13),
-(11, 10, 13),
-(12, 10, 16);
-
 -- --------------------------------------------------------
 
 --
@@ -221,16 +236,6 @@ CREATE TABLE `room_features` (
   `room_id` int(11) NOT NULL,
   `features_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data untuk tabel `room_features`
---
-
-INSERT INTO `room_features` (`sr_no`, `room_id`, `features_id`) VALUES
-(6, 9, 18),
-(7, 9, 16),
-(8, 10, 16),
-(10, 10, 18);
 
 -- --------------------------------------------------------
 
@@ -250,19 +255,32 @@ CREATE TABLE `room_images` (
 --
 
 INSERT INTO `room_images` (`sr_no`, `room_id`, `image`, `thumb`) VALUES
-(10, 11, 'IMG_11892.png', 0),
-(11, 11, 'IMG_39782.png', 0),
-(12, 11, 'IMG_42663.png', 0),
-(13, 11, 'IMG_65019.png', 0),
-(14, 11, 'IMG_67761.png', 0),
-(15, 11, 'IMG_70583.png', 1),
-(16, 10, 'IMG_78809.png', 1),
-(17, 9, 'IMG_68745.jpg', 1),
-(18, 4, 'IMG_96670.png', 1),
-(19, 13, 'IMG_83726.png', 1),
-(20, 14, 'IMG_11944.png', 0),
-(21, 14, 'IMG_62563.png', 1),
-(22, 14, 'IMG_61092.jpg', 0);
+(28, 18, 'IMG_35660.jpg', 1),
+(29, 18, 'IMG_35912.jpg', 0),
+(30, 18, 'IMG_32797.jpg', 0),
+(31, 18, 'IMG_16345.jpeg', 0),
+(32, 17, 'IMG_15397.jpeg', 1),
+(33, 17, 'IMG_97269.jpeg', 0),
+(34, 17, 'IMG_27748.jpeg', 0),
+(35, 17, 'IMG_58472.jpeg', 0),
+(36, 19, 'IMG_15272.jpg', 0),
+(37, 19, 'IMG_89256.jpg', 1),
+(38, 19, 'IMG_50406.jpg', 0),
+(39, 19, 'IMG_45733.jpg', 0),
+(40, 19, 'IMG_45876.jpg', 0),
+(41, 19, 'IMG_77595.jpg', 0),
+(42, 20, 'IMG_70111.jpg', 0),
+(43, 20, 'IMG_47472.jpg', 0),
+(44, 20, 'IMG_84064.jpg', 0),
+(45, 20, 'IMG_29968.jpg', 0),
+(46, 20, 'IMG_74750.jpg', 1),
+(47, 21, 'IMG_39070.jpg', 1),
+(48, 21, 'IMG_34797.jpg', 0),
+(49, 21, 'IMG_37246.jpg', 0),
+(50, 21, 'IMG_64149.jpg', 0),
+(51, 21, 'IMG_49567.jpg', 0),
+(52, 21, 'IMG_25636.jpg', 0),
+(53, 22, 'IMG_66647.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -282,7 +300,7 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` (`sr_no`, `site_title`, `site_about`, `shutdown`) VALUES
-(1, 'Kami Hotel', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores corrupti quaerat dolorum laudantium eius iusto iure. Amet numquam fugiat, exercitationem, eos animi voluptatum fuga ad qui excepturi illum, sequi vel?', 0);
+(1, 'Faith Industries', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores corrupti quaerat dolorum laudantium eius iusto iure. Amet numquam fugiat, exercitationem, eos animi voluptatum fuga ad qui excepturi illum, sequi vel?', 0);
 
 -- --------------------------------------------------------
 
@@ -398,6 +416,12 @@ ALTER TABLE `features`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `payment`
+--
+ALTER TABLE `payment`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `registered_users`
 --
 ALTER TABLE `registered_users`
@@ -492,10 +516,16 @@ ALTER TABLE `features`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
+-- AUTO_INCREMENT untuk tabel `payment`
+--
+ALTER TABLE `payment`
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+
+--
 -- AUTO_INCREMENT untuk tabel `rooms`
 --
 ALTER TABLE `rooms`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT untuk tabel `room_facilities`
@@ -513,7 +543,7 @@ ALTER TABLE `room_features`
 -- AUTO_INCREMENT untuk tabel `room_images`
 --
 ALTER TABLE `room_images`
-  MODIFY `sr_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `sr_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT untuk tabel `settings`

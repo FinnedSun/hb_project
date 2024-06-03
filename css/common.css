@@ -202,3 +202,7 @@ div.user a {
 .welcome {
   text-transform: uppercase;
 }
+
+.notif {
+  z-index: 9999;
+}

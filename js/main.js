@@ -112,3 +112,7 @@ login_form.addEventListener('submit', (e) => {
 
   xhr.send(data)
 })
+
+function payment(user_id) {
+  window.location.href = 'payment.php?id=' + user_id
+}

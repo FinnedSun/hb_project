@@ -1,53 +1,25 @@
 <?php
-    require("../admin/inc/assentials.php");
-    require("../admin/inc/db_config.php"); 
-    date_default_timezone_set("Asia/Jakarta");
+require ("../admin/inc/assentials.php");
+require ("../admin/inc/db_config.php");
 
-    if(isset($_POST['check_availability']))
-    {
-        $frm_data = filteration($_POST);
-        $status = "";
-        $result = "";
+if (isset($_POST['buy_ship'])) {
+    $frm_data = filteration($_POST);
+    $img_r = uploadImage($_FILES['image'], PAYMENT_FOLDER);
 
-        //check in validation
 
-        
-        $today_date = new DateTime(date("Y-m-d"));
-        $checkin_date = new DateTime($frm_data['check_in']);
-        $checkout_date = new DateTime($frm_data['check_out']);
+    // if ($img_r == 'inv_img') {
+    //     echo $img_r;
+    // } else if ($img_r == 'inv_size') {
+    //     echo $img_r;
+    // } else if ($img_r == 'upd_failed') {
+    //     echo $img_r;
+    // } else {
+    // }
 
-        if($checkin_date == $checkout_date){
-            $status = 'check_in_out_equel';
-            $result = json_encode(["status"=>$status]);
-        }
-        else if($checkout_date  < $checkin_date){
-            $status = 'check_out_earlier';
-            $result = json_encode(["status"=>$status]);
-        }
-        else if($checkin_date < $today_date){
-            $status = 'check_in_earlier';
-            $result = json_encode(["status"=>$status]);
-        }
+    $q1 = "INSERT INTO `payment`(`nama`, `email`, `no_hp`, `alamat`, `nama_product`, `harga_product`, `catatan_product`, `image`) VALUES (?,?,?,?,?,?,?,?)";
+    $values = [$frm_data['nama'], $frm_data['email'], $frm_data['no_hp'], $frm_data['alamat'], $frm_data['nama_product'], $frm_data['harga_product'], $frm_data['catatan_product'], $img_r];
+    $res = insert($q1, $values, 'sssssiss');
 
-        // check booking availabel if status is blank else return the error
-        if($status!=''){
-            echo $result;
-        }
-        else{
-            session_start();
-            $_SESSION['room'];
-
-            //run query availebility room or not
-
-            $count_day = date_diff($checkin_date,$checkout_date)->days;
-            $payment = $_SESSION['room']['price'] * $count_day;
-
-            $_SESSION['room']['payment'] = $payment;
-            $_SESSION['room']['available'] = true;
-
-            $result = json_encode(["status"=>"available", "days"=>$count_day, "payment"=>$payment]);
-            echo $result;
-        }
-
-    }
+    echo $res;
+}
 ?>
