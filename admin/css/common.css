@@ -49,6 +49,15 @@ input[type='number'] {
     z-index: 11;
   }
   #main-content {
-    margin-top: 60px;
+    margin-top: 10px;
+  }
+}
+
+@media print {
+  #form-input {
+    display: none;
+  }
+  .print-h {
+    display: none;
   }
 }

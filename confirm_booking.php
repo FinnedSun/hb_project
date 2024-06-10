@@ -100,36 +100,44 @@
                   <label class="form-label mb-1">Nama</label>
                   <h3></h3>
                   <input type="text" name="nama" value="<?php echo $user_data['username'] ?>" class="form-control"
-                    required>
+                    required readonly>
                 </div>
                 <div class="col-md-6 mb-3">
                   <label class="form-label mb-1">Email</label>
                   <input type="text" name="email" value="<?php echo $user_data['email'] ?>" class="form-control"
-                    required>
+                    required readonly>
                 </div>
                 <div class="col-md-6 mb-3">
                   <label class="form-label mb-1">Phone Number</label>
                   <input type="number" name="no_hp" value="<?php echo $user_data['phonenum'] ?>" class="form-control"
-                    required>
+                    required readonly>
                 </div>
                 <div class="col-md-6 mb-3">
                   <label class="form-label mb-1">Nama Product</label>
                   <input type="text" name="nama_product" value="<?php echo $room_data['name'] ?>" class="form-control"
-                    required>
+                    required readonly>
                 </div>
                 <div class="col-md-6 mb-3">
                   <label class="form-label mb-1">Harga</label>
                   <input type="number" name="harga_product" value="<?php echo $room_data['price'] ?>000"
-                    class="form-control" required>
+                    class="form-control" required readonly>
                 </div>
                 <div class="col-md-6 mb-3">
                   <label class="form-label mb-1">Bukti Pembayaran</label>
                   <input type="file" accept=".png, .webp, .jpeg" name="image" class="form-control">
                 </div>
-                <div class="col-md-12 mb-3">
+
+                <div class="col-md-6 mb-3">
+                  <label class="form-label mb-1">Jumlah Product</label>
+                  <input class="form-control" type="number" name="stok" value="1"></input>
+                </div>
+
+                <div class="col-md-6 mb-3">
                   <label class="form-label mb-1">Alamat</label>
                   <textarea class="form-control" rows="1" name="alamat"><?php echo $user_data['alamat'] ?></textarea>
                 </div>
+
+
 
                 <div class="col-md-12 mb-3">
                   <label class="form-label mb-1">Catatan Product</label>
@@ -180,6 +188,7 @@
       data.append('nama_product', add_room_form.elements['nama_product'].value)
       data.append('harga_product', add_room_form.elements['harga_product'].value)
       data.append('catatan_product', add_room_form.elements['catatan_product'].value)
+      data.append('stok', add_room_form.elements['stok'].value)
       data.append('image', add_room_form.elements['image'].files[0])
 
       let xhr = new XMLHttpRequest()

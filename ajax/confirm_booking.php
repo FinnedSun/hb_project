@@ -16,9 +16,9 @@ if (isset($_POST['buy_ship'])) {
     // } else {
     // }
 
-    $q1 = "INSERT INTO `payment`(`nama`, `email`, `no_hp`, `alamat`, `nama_product`, `harga_product`, `catatan_product`, `image`) VALUES (?,?,?,?,?,?,?,?)";
-    $values = [$frm_data['nama'], $frm_data['email'], $frm_data['no_hp'], $frm_data['alamat'], $frm_data['nama_product'], $frm_data['harga_product'], $frm_data['catatan_product'], $img_r];
-    $res = insert($q1, $values, 'sssssiss');
+    $q1 = "INSERT INTO `payment`(`nama`, `email`, `no_hp`, `alamat`, `nama_product`, `harga_product`, `catatan_product`, `stok`, `image`) VALUES (?,?,?,?,?,?,?,?,?)";
+    $values = [$frm_data['nama'], $frm_data['email'], $frm_data['no_hp'], $frm_data['alamat'], $frm_data['nama_product'], $frm_data['harga_product'], $frm_data['catatan_product'], $frm_data['stok'], $img_r];
+    $res = insert($q1, $values, 'sssssisis');
 
     echo $res;
 }
