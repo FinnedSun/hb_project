@@ -1,6 +1,7 @@
 <?php
 require ("inc/assentials.php");
 require ("inc/db_config.php");
+
 adminLogin();
 
 ?>
@@ -11,30 +12,93 @@ adminLogin();
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Admin Panel - Product</title>
+  <title>Admin Panel - Dashboard</title>
   <?php require ("inc/links.php"); ?>
+  <style>
+    html,
+    body,
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    @media print {
+      #form-input {
+        display: none;
+      }
+
+      .signature {
+        margin-top: 50px;
+        text-align: right;
+      }
+
+      .signature p {
+        margin: 0;
+        padding: 0;
+      }
+
+      .signature p+p {
+        margin-top: 10px;
+      }
+
+      .title-trans {
+        size: 50px;
+      }
+
+      .nones {
+        display: none;
+      }
+    }
+  </style>
+  <script>
+    function printReport() {
+      window.print();
+    }
+  </script>
 </head>
 
-<body class="bg-light">
+<body class="">
 
   <?php require ("inc/header.php"); ?>
 
-  <div class="container-fluid" id="main-content">
+  <div class="">
     <div class="row">
-      <div class="col-lg-10 ms-auto p-4 overflow-hidden">
+      <div class="col-lg-10 ms-auto overflow-hidden">
 
         <!-- Feature section -->
-        <div class="card border-0 shadow-sm mb-4" style="margin-top:90px;">
-          <div class="card-body shadow-sm">
-            <div class="d-flex align-items-center justify-content-between my-3 mx-4 text-center">
-              <h4 class="card-title m-0">Kamar</h4>
-              <button type="button" class="btn btn-dark btn-sm shadow" data-bs-toggle="modal"
-                data-bs-target="#add-room">
-                <i class="bi bi-plus-circle"></i> Tambah
-              </button>
+        <div class="card border-0 ">
+          <h1>Laporan Transaksi Harian</h1>
+
+          <div class="card-body">
+            <form method="get" id="form-input">
+              <div class="col-md-3 mb-3">
+                <label class="form-label mb-1">Tanggal</label>
+                <input class="form-control" type="date" id="tanggal" name="tanggal"
+                  value="<?php echo isset($_GET['tanggal']) ? $_GET['tanggal'] : date('Y-m-d'); ?>"></input>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label class="form-label mb-1">Nama Pimpinan</label>
+                <input class="form-control" type="text" id="pimpinan" name="pimpinan"
+                  value="<?php echo isset($_GET['pimpinan']) ? $_GET['pimpinan'] : ''; ?>"></input>
+              </div>
+              <button type="submit" class="btn btn-secondary">Tampilkan</button>
+              <button onclick="printReport()" class="btn">Cetak Laporan</button>
+            </form>
+            <div class=" d-flex align-items-center justify-content-between my-3 mx-4 text-center">
+              <h4 class="card-title m-0">Product</h4>
             </div>
 
-            <div class="table-responsive-lg rounded shadow-lg mb-3" style="height: 450px; overflow-y:scroll; ">
+            <?php
+            $tanggal = isset($_GET['tanggal']) ? $_GET['tanggal'] : date('Y-m-d');
+            $pimpinan = isset($_GET['pimpinan']) ? $_GET['pimpinan'] : '';
+
+            // $res = "SELECT `tanggal` FROM `payment` WHERE `tanggal` = '$tanggal'";
+            
+            ?>
+
+
+            <div class="table-responsive-lg rounded mb-3 p-3">
+              <h4 class='title-trans'>Transaksi pada <?php echo $tanggal ?></h4>
               <table class="table align-middle table-hover text-center table-bordered">
                 <thead>
                   <tr class="table-dark">
@@ -43,8 +107,7 @@ adminLogin();
                     <th class="col">Jumlah</th>
                     <th class="col">Total</th>
                     <th class="col">Tanggal</th>
-                    <th class="col">Sisa stok</th>
-                    <th class="col" width="10%">Status</th>
+                    <th class="col" width="10%" class="nones">Status</th>
                   </tr>
                 </thead>
                 <tbody id="room-data">
@@ -277,6 +340,21 @@ adminLogin();
 
   <?php require ("inc/scripts.php"); ?>
   <script src="js/dashboard.js"></script>
+
+
+  <?php
+
+
+  if ($pimpinan) {
+    echo "<div class='signature'>";
+    echo "<h3>Disetujui oleh:</h3>";
+    echo "<p><strong>$pimpinan</strong></p>";
+    echo "<br><br>";
+    echo "<p>_______________________</p>";
+    echo "<p>Tanda Tangan</p>";
+    echo "</div>";
+  }
+  ?>
 </body>
 
 </html>

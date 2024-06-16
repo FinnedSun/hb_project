@@ -54,7 +54,6 @@ if (isset($_POST['add_room'])) {
 
 if (isset($_POST['get_all_payment'])) {
   $res = select("SELECT * FROM `payment` WHERE `status`=? ORDER BY `id` DESC", [1], 'i');
-  $rooms = select("SELECT * FROM `rooms` WHERE `removed`=? ORDER BY `id` DESC", [0], 'i');
 
   $i = 1;
 
@@ -80,7 +79,6 @@ if (isset($_POST['get_all_payment'])) {
                     <td>$row[stok]</td>
                     <td>$total</td>
                     <td>$row[tanggal]</td>
-                    <td>$row[quantity]</td>
                     <td>$status</td>
 
                 </tr>
