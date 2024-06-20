@@ -1,8 +1,8 @@
 <?php
-require ('admin/inc/db_config.php');
-require ('admin/inc/assentials.php');
 session_start();
 date_default_timezone_set("Asia/Jakarta");
+require ('admin/inc/db_config.php');
+require ('admin/inc/assentials.php');
 
 $contact_q = "SELECT * FROM `contact_details` WHERE `sr_no`=?";
 $settings_q = "SELECT * FROM `settings` WHERE `sr_no`=?";

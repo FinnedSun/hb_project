@@ -1,9 +1,14 @@
 <?php
 
-$hname = 'hbwebsite_hbwebsite:3306';
-$uname = 'mysql';
-$pass = 'rabu0304';
+$hname = 'localhost';
+$uname = 'root';
+$pass = '';
 $db = 'hbwebsite';
+
+// $hname = 'hbwebsite_hbwebsite:3306';
+// $uname = 'mysql';
+// $pass = 'rabu0304';
+// $db = 'hbwebsite';
 
 $con = mysqli_connect($hname, $uname, $pass, $db);
 
