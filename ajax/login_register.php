@@ -130,7 +130,7 @@ if (isset($_POST['login'])) {
                 $_SESSION['pictue'] = $result_fetch['profile'];
                 $_SESSION['phonenum'] = $result_fetch['phonenum'];
                 $_SESSION['address'] = $result_fetch['address'];
-                header("https://hbwebsite-hbweb.3x2ewk.easypanel.host");
+                header("https://hbwebsite-hbweb.3x2ewk.easypanel.host/");
             } else {
                 #if incorrect password
                 echo "
