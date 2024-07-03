@@ -10,7 +10,7 @@ if (isset($_POST['add_room'])) {
   $frm_data = filteration($_POST);
   $flag = 0;
 
-  $q1 = "INSERT INTO `registered_users`(`username`, `email`, `phonenum`, `alamat`) VALUES (?,?,?,?)";
+  $q1 = "INSERT INTO `rooms`(`name`, `area`, `price`, `quantity`, `adult`, `children`, `description`) VALUES (?,?,?,?,?,?,?)";
   $values = [$frm_data['name'], $frm_data['area'], $frm_data['price'], $frm_data['quantity'], $frm_data['adult'], $frm_data['children'], $frm_data['desc']];
 
   if (insert($q1, $values, 'siiiiis')) {
@@ -53,7 +53,10 @@ if (isset($_POST['add_room'])) {
 }
 
 if (isset($_POST['get_all_payment'])) {
-  $res = select("SELECT * FROM `registered_users` WHERE `status`=? ORDER BY `id` DESC", [1], 'i');
+
+  $tanggal = isset($_GET['tanggal']) ? $_GET['tanggal'] : date('Y-m-d');
+
+  $res = select("SELECT * FROM `payment` WHERE `tanggal`=? ORDER BY `id` DESC", [$tanggal], 's');
 
   $i = 1;
 
@@ -75,10 +78,12 @@ if (isset($_POST['get_all_payment'])) {
     $data .= "
                 <tr>
                     <td>$i</td>
-                    <td>$row[username]</td>
-                    <td>$row[email]</td>
-                    <td>$row[phonenum]</td>
-                    <td>$row[alamat]</td>
+                    <td>$row[nama]</td>
+                    <td>$row[stok]</td>
+                    <td>$total</td>
+                    <td>$row[tanggal]</td>
+                    <td>$status</td>
+
                 </tr>
             ";
     $i++;

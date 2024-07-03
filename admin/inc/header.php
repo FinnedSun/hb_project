@@ -1,17 +1,3 @@
-<style>
-    @media print {
-        #form-input {
-            display: none;
-        }
-    }
-</style>
-
-<script>
-    function printReport() {
-        window.print();
-    }
-</script>
-
 <form class="d-flex" id="form-input">
     <div
         class="container-fluid bg-dark text-light p-3 d-flex align-items-center justify-content-between sticky-top print-h">
@@ -32,7 +18,7 @@
                 <div class="collapse navbar-collapse flex-column align-items-stretch mt-2" id="adminDropdown">
                     <ul class="nav nav-pills flex-column">
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="dashboard.php">Dashboard</a>
+                            <a class="nav-link text-white" href="bulanan.php">Dashboard</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" href="rooms.php">Product</a>

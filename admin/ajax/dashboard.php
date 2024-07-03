@@ -53,7 +53,7 @@ if (isset($_POST['add_room'])) {
 }
 
 if (isset($_POST['get_all_payment'])) {
-  $res = select("SELECT * FROM `payment` WHERE `status`=? ORDER BY `id` DESC", [1], 'i');
+  $res = select("SELECT * FROM `registered_users` WHERE `status`=? ORDER BY `id` DESC", [1], 'i');
 
   $i = 1;
 
@@ -75,11 +75,10 @@ if (isset($_POST['get_all_payment'])) {
     $data .= "
                 <tr>
                     <td>$i</td>
-                    <td>$row[nama]</td>
-                    <td>$row[stok]</td>
-                    <td>$total</td>
-                    <td>$row[tanggal]</td>
-                    <td>$status</td>
+                    <td>$row[username]</td>
+                    <td>$row[email]</td>
+                    <td>$row[phonenum]</td>
+                    <td>$row[alamat]</td>
 
                 </tr>
             ";

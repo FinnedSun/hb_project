@@ -13,6 +13,14 @@ adminLogin();
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Admin Panel - Product</title>
   <?php require ("inc/links.php"); ?>
+  <style>
+    html,
+    body,
+    * {
+      padding: 0;
+      margin: 0;
+    }
+  </style>
 </head>
 
 <body class="bg-light">
@@ -27,7 +35,7 @@ adminLogin();
         <div class="card border-0 shadow-sm mb-4" style="margin-top:90px;">
           <div class="card-body shadow-sm">
             <div class="d-flex align-items-center justify-content-between my-3 mx-4 text-center">
-              <h4 class="card-title m-0">Kamar</h4>
+              <h4 class="card-title m-0">Pruduct</h4>
               <button type="button" class="btn btn-dark btn-sm shadow" data-bs-toggle="modal"
                 data-bs-target="#add-room">
                 <i class="bi bi-plus-circle"></i> Tambah

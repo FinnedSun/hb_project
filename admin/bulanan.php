@@ -27,10 +27,6 @@ adminLogin();
         display: none;
       }
 
-      .none {
-        display: none;
-      }
-
       .signature {
         margin-top: 50px;
         text-align: right;
@@ -77,8 +73,8 @@ adminLogin();
             <form method="get" id="form-input">
               <div class="col-md-3 mb-3">
                 <label class="form-label mb-1">Tanggal</label>
-                <input class="form-control" type="month" id="tanggal" name="tanggal"
-                  value="<?php echo isset($_GET['tanggal']) ? $_GET['tanggal'] : date('Y-m'); ?>">
+                <input class="form-control" type="date" id="tanggal" name="tanggal"
+                  value="<?php echo isset($_GET['tanggal']) ? $_GET['tanggal'] : date('Y-m-d'); ?>"></input>
               </div>
               <div class="col-md-3 mb-3">
                 <label class="form-label mb-1">Nama Pimpinan</label>
@@ -93,26 +89,24 @@ adminLogin();
             </div>
 
             <?php
-            $tanggal = isset($_GET['tanggal']) ? $_GET['tanggal'] : date('Y-m');
+            $tanggal = isset($_GET['tanggal']) ? $_GET['tanggal'] : date('Y-m-d');
             $pimpinan = isset($_GET['pimpinan']) ? $_GET['pimpinan'] : '';
 
-            $bulan = date('Y-m', strtotime($tanggal));
-
-            $res = select("SELECT * FROM `payment` WHERE DATE_FORMAT(tanggal, '%Y-%m')=? ORDER BY `id` DESC", [$bulan], 's');
+            $res = select("SELECT * FROM `payment` WHERE `tanggal`=? ORDER BY `id` DESC", [$tanggal], 's');
 
 
             ?>
 
             <div class="table-responsive-lg rounded mb-3 p-3">
-              <h4 class='title-trans'>Transaksi pada <?php echo $bulan ?></h4>
+              <h4 class='title-trans'>Transaksi pada <?php echo $tanggal ?></h4>
               <table class="table align-middle table-hover text-center table-bordered">
                 <thead>
                   <tr class="table-dark">
                     <th class="col">No</th>
                     <th class="col">Nama</th>
-                    <th class="col none">Email</th>
+                    <th class="col">Email</th>
                     <th class="col">No hp</th>
-                    <th class="col none">Alamat</th>
+                    <th class="col">Alamat</th>
                     <th class="col">Product</th>
                     <th class="col">Harga</th>
                     <th class="col">Jumlah</th>
@@ -121,13 +115,9 @@ adminLogin();
                 </thead>
                 <tbody>
                   <?php
-                  if ($res) {
-                    $no = 1;
-                    while ($row = $res->fetch_assoc()) {
-                      echo "<tr><td>" . $no++ . "</td><td>" . $row["nama"] . "</td><td class='none'>" . $row["email"] . "</td><td>" . $row["no_hp"] . "</td><td class='none'>" . $row["alamat"] . "</td><td>" . $row["nama_product"] . "</td><td> Rp." . number_format($row["harga_product"], 2, ',', '.') . "</td><td>" . $row["stok"] . "</td><td>" . $row["tanggal"] . "</td></tr>";
-                    }
-                  } else {
-                    echo "<p>Tidak ada transaksi pada bulan ini.</p>";
+                  $no = 1;
+                  while ($row = $res->fetch_assoc()) {
+                    echo "<tr><td>" . $no++ . "</td><td>" . $row["nama"] . "</td><td>" . $row["email"] . "</td><td>" . $row["no_hp"] . "</td><td>" . $row["alamat"] . "</td><td>" . $row["nama_product"] . "</td><td> Rp." . number_format($row["harga_product"], 2, ',', '.') . "</td><td>" . $row["stok"] . "</td><td>" . $row["tanggal"] . "</td></tr>";
                   }
 
                   ?>
@@ -358,7 +348,7 @@ adminLogin();
   </div>
 
   <?php require ("inc/scripts.php"); ?>
-  <script src="js/dashboard.js"></script>
+  <script src="js/bulanan.js"></script>
 
 
   <?php
