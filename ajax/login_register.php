@@ -114,7 +114,7 @@ require ("../admin/inc/db_config.php");
 // }
 
 #for Login
-$link = "https://hbwebsite-hbweb.3x2ewk.easypanel.host";
+$link = "http://localhost/hb_project";
 
 if (isset($_POST['login'])) {
     $query = "SELECT * FROM `registered_users` WHERE `email`='$_POST[email_username]' OR `username`='$_POST[email_username]'";
@@ -130,7 +130,7 @@ if (isset($_POST['login'])) {
                 $_SESSION['pictue'] = $result_fetch['profile'];
                 $_SESSION['phonenum'] = $result_fetch['phonenum'];
                 $_SESSION['address'] = $result_fetch['address'];
-                header("https://hbwebsite-hbweb.3x2ewk.easypanel.host/");
+                header("location: $link/");
             } else {
                 #if incorrect password
                 echo "

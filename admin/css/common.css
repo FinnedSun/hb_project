@@ -61,3 +61,108 @@ input[type='number'] {
     display: none;
   }
 }
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+h1,
+h2 {
+  color: #333;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 10px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+}
+
+nav ul li a:hover {
+  background-color: #0056b3;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+form label {
+  font-weight: bold;
+}
+
+button {
+  margin: 20px 0;
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+table,
+th,
+td {
+  border: 1px solid #ddd;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+.signature {
+  margin-top: 50px;
+  text-align: right;
+}
+
+.signature p {
+  margin: 0;
+  padding: 0;
+}
+
+.signature p + p {
+  margin-top: 10px;
+}
+
+/* Sembunyikan form saat cetak */
+@media print {
+  #form-input {
+    display: none;
+  }
+}

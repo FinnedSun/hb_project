@@ -96,7 +96,6 @@ adminLogin();
             
             ?>
 
-
             <div class="table-responsive-lg rounded mb-3 p-3">
               <h4 class='title-trans'>Transaksi pada <?php echo $tanggal ?></h4>
               <table class="table align-middle table-hover text-center table-bordered">
@@ -114,7 +113,6 @@ adminLogin();
                 </tbody>
               </table>
             </div>
-
           </div>
         </div>
       </div>
