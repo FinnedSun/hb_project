@@ -20,6 +20,12 @@ adminLogin();
       padding: 0;
       margin: 0;
     }
+
+    @media print {
+      .none {
+        display: none;
+      }
+    }
   </style>
 </head>
 
@@ -36,7 +42,7 @@ adminLogin();
           <div class="card-body shadow-sm">
             <div class="d-flex align-items-center justify-content-between my-3 mx-4 text-center">
               <h4 class="card-title m-0">Pruduct</h4>
-              <button type="button" class="btn btn-dark btn-sm shadow" data-bs-toggle="modal"
+              <button type="button" class="btn btn-dark btn-sm shadow none" data-bs-toggle="modal"
                 data-bs-target="#add-room">
                 <i class="bi bi-plus-circle"></i> Tambah
               </button>
@@ -48,12 +54,12 @@ adminLogin();
                   <tr class="table-dark">
                     <th class="col">No</th>
                     <th class="col">Name</th>
-                    <th class="col">Area</th>
+                    <th class="col">Berat</th>
                     <th class="col">Tamu</th>
                     <th class="col">Harga</th>
-                    <th class="col">Quantity</th>
-                    <th class="col" width="10%">Status</th>
-                    <th class="col">Action</th>
+                    <th class="col">Stok</th>
+                    <th class="col none" width="10%">Status</th>
+                    <th class="col none">Action</th>
                   </tr>
                 </thead>
                 <tbody id="room-data">

@@ -2,14 +2,14 @@
     <div
         class="container-fluid bg-dark text-light p-3 d-flex align-items-center justify-content-between sticky-top print-h">
         <h3 class="mb-0 h-font">Faith Industries</h3>
-        <a href="logout.php" class="btn btn-light btn-sm" id="form-input">LOG OUT</a>
+        <a href="logout.php" class="btn btn-light btn-sm none" id="form-input">LOG OUT</a>
     </div>
 
     <div class="col-lg-2 bg-dark border-top border-3 border-secondary" id="dashboard-menu" style="padding-top:70px">
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container-fluid flex-lg-column align-items-stretch">
                 <a href="dashboard.php">
-                    <h4 class="mt-2 text-light" id="form-input">ADMIN PANEL</h4>
+                    <h4 class="mt-2 text-light none" id="form-input">ADMIN PANEL</h4>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#adminDropdown"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,6 +19,12 @@
                     <ul class="nav nav-pills flex-column">
                         <li class="nav-item">
                             <a class="nav-link text-white" href="bulanan.php">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="dashboard.php">Bulanan</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="user.php">User</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" href="rooms.php">Product</a>

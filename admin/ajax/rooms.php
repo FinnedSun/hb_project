@@ -81,8 +81,8 @@ if (isset($_POST['get_all_rooms'])) {
                     </td>
                     <td>IDR $row[price].000</td>
                     <td>$row[quantity]</td>
-                    <td>$status</td>
-                    <td>
+                    <td class='none'>$status</td>
+                    <td class='none'>
                         <button type='button' onclick='edit_ditails($row[id])' class='btn btn-primary btn-sm shadow' data-bs-toggle='modal' data-bs-target='#edit-room'>
                             <i class='bi bi-plus-circle'></i>
                         </button>
